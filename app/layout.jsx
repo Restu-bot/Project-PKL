@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { Barlow } from "next/font/google";
+
+const barlowFont = Barlow({
+  subsets: ["latin"],
+  variable: "--font-barlow",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,11 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${barlowFont.variable} antialiased`}>{children}</body>
     </html>
   );
 }
